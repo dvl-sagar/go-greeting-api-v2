@@ -13,7 +13,7 @@ type Response struct {
 
 // Serve the HTML page
 func homeHandler(w http.ResponseWriter, r *http.Request) {
-	http.ServeFile(w, r, "static/index.html")
+	http.ServeFile(w, r, "index.html")
 }
 
 // API handler for greeting

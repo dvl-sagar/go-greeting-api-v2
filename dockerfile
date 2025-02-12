@@ -21,13 +21,13 @@ FROM alpine:latest
 WORKDIR /app
 
 # Copy only the built application from the builder stage
-COPY --from=builder /app/app /app/app
+COPY --from=builder /app/app .
 
 # Copy static files if applicable
-COPY --from=builder /app/static /app/static
+COPY --from=builder /app/index.html .
 
 # Expose the port used by the app
 EXPOSE 8080
 
 # Run the application
-CMD ["/app/app"]
+CMD ["./app"]
