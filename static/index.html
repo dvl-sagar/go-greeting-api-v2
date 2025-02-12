@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Go Greeting App</title>
+    <script>
+        function sendGreeting() {
+            let text = document.getElementById("textInput").value;
+            fetch("/greet?name=" + encodeURIComponent(text))
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById("output").innerText = data.message;
+                });
+        }
+    </script>
+</head>
+<body>
+    <h2>Enter your name:</h2>
+    <input type="text" id="textInput">
+    <button onclick="sendGreeting()">Greet</button>
+    <h3 id="output"></h3>
+</body>
+</html>
